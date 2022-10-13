@@ -43,7 +43,7 @@ const TaskCard = ({ task }) => {
         </div>
         <div className="right">
           <button className="btn btn-info" onClick={toggle}>
-            Details
+            Detail
           </button>
           <button className="btn btn-danger" onClick={removeTask}>
             Remove
