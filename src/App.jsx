@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="half">
+        <div className="half" style={{ borderRight: '1px solid' }}>
           <NewTask />
         </div>
         <div className="half">

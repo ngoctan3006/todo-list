@@ -1,0 +1,33 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 0.4rem;
+}
+
+.card.open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0 !important;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.left h2 {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.right button + button {
+  margin-left: 1rem;
+}
+
+.details {
+  padding: 2rem;
+  border-radius: 0 0 0.4rem 0.4rem;
+  overflow: hidden !important;
+}
