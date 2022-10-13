@@ -11,6 +11,14 @@ export const taskReducer = (state, action) => {
     case ADD_TASK:
       return [...state, action.payload];
 
+    case UPDATE_TASK:
+      return state.map((task) => {
+        if (task.id === action.payload.id) {
+          return action.payload;
+        }
+        return task;
+      });
+
     default:
       return state;
   }

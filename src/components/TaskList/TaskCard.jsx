@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Collapse } from 'react-collapse';
 import Form from '../Form';
+import { TaskContext } from '../../contexts/TaskContext';
 import './task-list.css';
 
 const styleMapping = {
@@ -11,9 +12,15 @@ const styleMapping = {
 
 const TaskCard = ({ task }) => {
   const [open, setOpen] = useState(false);
+  const { updateTask } = useContext(TaskContext);
 
   const toggle = () => {
     setOpen(!open);
+  };
+
+  const update = (data) => {
+    updateTask(data);
+    alert('Update successfully!');
   };
 
   return (
@@ -37,7 +44,7 @@ const TaskCard = ({ task }) => {
 
       <Collapse isOpened={open}>
         <div className={`details border border-${styleMapping[task.priority]}`}>
-          <Form />
+          <Form type="Update" task={task} onSubmit={update} />
         </div>
       </Collapse>
     </div>

@@ -24,7 +24,8 @@ const Form = ({ task, type, onSubmit }) => {
   const submit = (e) => {
     e.preventDefault();
     onSubmit(data);
-    setData({ ...task });
+    if (type === 'Add') setData({ ...task });
+    else setData({ ...data });
   };
 
   return (

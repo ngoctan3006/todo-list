@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer } from 'react';
-import { ADD_TASK } from '../reducers/constant';
+import { ADD_TASK, UPDATE_TASK } from '../reducers/constant';
 import { taskReducer } from '../reducers/taskReducer';
 
 export const TaskContext = createContext();
@@ -18,8 +18,12 @@ const TaskContextProvider = ({ children }) => {
     dispatch({ type: ADD_TASK, payload: task });
   };
 
+  const updateTask = (task) => {
+    dispatch({ type: UPDATE_TASK, payload: task });
+  };
+
   return (
-    <TaskContext.Provider value={{ tasks, addTask }}>
+    <TaskContext.Provider value={{ tasks, addTask, updateTask }}>
       {children}
     </TaskContext.Provider>
   );

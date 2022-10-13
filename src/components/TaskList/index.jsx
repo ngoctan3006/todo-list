@@ -7,9 +7,11 @@ const TaskList = () => {
 
   return tasks.length > 0 ? (
     <div>
-      {tasks.map((task) => (
-        <TaskCard key={task.id} task={task} />
-      ))}
+      {tasks
+        .sort((a, b) => (a.due > b.due ? 1 : -1))
+        .map((task) => (
+          <TaskCard key={task.id} task={task} />
+        ))}
     </div>
   ) : null;
 };
