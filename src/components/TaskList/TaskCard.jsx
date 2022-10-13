@@ -12,10 +12,17 @@ const styleMapping = {
 
 const TaskCard = ({ task }) => {
   const [open, setOpen] = useState(false);
-  const { updateTask } = useContext(TaskContext);
+  const { updateTask, deleteTask } = useContext(TaskContext);
 
   const toggle = () => {
     setOpen(!open);
+  };
+
+  const removeTask = () => {
+    const cf = window.confirm('Are you sure you want to delete this task?');
+    if (!cf) return;
+    deleteTask(task.id);
+    alert('Delete successfully!');
   };
 
   const update = (data) => {
@@ -38,7 +45,9 @@ const TaskCard = ({ task }) => {
           <button className="btn btn-info" onClick={toggle}>
             Details
           </button>
-          <button className="btn btn-danger">Remove</button>
+          <button className="btn btn-danger" onClick={removeTask}>
+            Remove
+          </button>
         </div>
       </div>
 
