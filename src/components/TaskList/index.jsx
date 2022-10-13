@@ -1,22 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TaskCard from './TaskCard';
-
-const tasks = [
-  {
-    id: 1,
-    title: 'Test 1',
-    description: 'Test 1 description',
-    priority: 'normal',
-  },
-  {
-    id: 2,
-    title: 'Test 2',
-    description: 'Test 2 description',
-    priority: 'high',
-  },
-];
+import { TaskContext } from '../../contexts/TaskContext';
 
 const TaskList = () => {
+  const { tasks } = useContext(TaskContext);
+
   return tasks.length > 0 ? (
     <div>
       {tasks.map((task) => (

@@ -9,7 +9,7 @@ const styleMapping = {
   low: 'success',
 };
 
-const TaskCard = ({ key, task }) => {
+const TaskCard = ({ task }) => {
   const [open, setOpen] = useState(false);
 
   const toggle = () => {
