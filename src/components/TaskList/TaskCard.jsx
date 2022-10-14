@@ -10,8 +10,9 @@ const styleMapping = {
   low: 'success',
 };
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task, handleSelectList }) => {
   const [open, setOpen] = useState(false);
+  const [checked, setChecked] = useState(false);
   const { updateTask, deleteTask } = useContext(TaskContext);
 
   const toggle = () => {
@@ -30,6 +31,11 @@ const TaskCard = ({ task }) => {
     alert('Update successfully!');
   };
 
+  const handleCheck = () => {
+    handleSelectList(!checked, task.id);
+    setChecked(!checked);
+  };
+
   return (
     <div className="shadow">
       <div
@@ -38,14 +44,18 @@ const TaskCard = ({ task }) => {
         }`}
       >
         <div className="left">
-          <input type="checkbox" />
+          <input type="checkbox" checked={checked} onChange={handleCheck} />
           <h2>{task.title}</h2>
         </div>
         <div className="right">
-          <button className="btn btn-info" onClick={toggle}>
+          <button className="btn btn-info btn-sm" onClick={toggle}>
             Detail
           </button>
-          <button className="btn btn-danger" onClick={removeTask}>
+          <button
+            className="btn btn-danger btn-sm"
+            onClick={removeTask}
+            disabled={checked}
+          >
             Remove
           </button>
         </div>

@@ -46,7 +46,7 @@ const Form = ({ task, type, onSubmit }) => {
         <label>Description</label>
         <textarea
           className="form-control"
-          placeholder="Enter description"
+          placeholder="Enter description ..."
           name="description"
           value={data?.description}
           onChange={handleChange}

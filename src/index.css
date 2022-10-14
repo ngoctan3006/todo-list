@@ -61,6 +61,7 @@ hr {
 .block {
   border: 1px solid #dee2e6;
   padding: 30px;
+  position: relative;
 }
 
 .btn {
@@ -71,7 +72,6 @@ hr {
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
@@ -82,6 +82,16 @@ hr {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
 }
 
 .btn-primary {
@@ -120,14 +130,27 @@ hr {
   border-color: #b02a37;
 }
 
+.btn-danger.disabled,
+.btn-danger:disabled {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn:disabled,
+.btn.disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
 .btn-info {
-  color: #000;
+  color: #fff;
   background-color: #0dcaf0;
   border-color: #0dcaf0;
 }
 
 .btn-info:hover {
-  color: #000;
+  color: #fff;
   background-color: #31d2f2;
   border-color: #25cff2;
 }

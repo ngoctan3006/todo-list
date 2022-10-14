@@ -22,6 +22,9 @@ export const taskReducer = (state, action) => {
     case DELETE_TASK:
       return state.filter((task) => task.id !== action.payload);
 
+    case BULK_DELETE_TASKS:
+      return state.filter((task) => !action.payload.includes(task.id));
+
     default:
       return state;
   }

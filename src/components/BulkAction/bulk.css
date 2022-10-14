@@ -1,0 +1,15 @@
+.bulk {
+  position: absolute;
+  display: flex;
+  right: 30px;
+  align-items: center;
+}
+
+.count {
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.bulk button + button {
+  margin-left: 1rem;
+}

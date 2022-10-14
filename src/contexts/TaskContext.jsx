@@ -1,5 +1,10 @@
 import React, { createContext, useEffect, useReducer } from 'react';
-import { ADD_TASK, DELETE_TASK, UPDATE_TASK } from '../reducers/constant';
+import {
+  ADD_TASK,
+  BULK_DELETE_TASKS,
+  DELETE_TASK,
+  UPDATE_TASK,
+} from '../reducers/constant';
 import { taskReducer } from '../reducers/taskReducer';
 
 export const TaskContext = createContext();
@@ -26,8 +31,14 @@ const TaskContextProvider = ({ children }) => {
     dispatch({ type: DELETE_TASK, payload: id });
   };
 
+  const deleteMany = (idList) => {
+    dispatch({ type: BULK_DELETE_TASKS, payload: idList });
+  };
+
   return (
-    <TaskContext.Provider value={{ tasks, addTask, updateTask, deleteTask }}>
+    <TaskContext.Provider
+      value={{ tasks, addTask, updateTask, deleteTask, deleteMany }}
+    >
       {children}
     </TaskContext.Provider>
   );

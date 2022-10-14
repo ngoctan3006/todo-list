@@ -6,7 +6,7 @@ const Search = ({ search, setSearch }) => {
       <input
         className="form-control"
         type="text"
-        placeholder="Search..."
+        placeholder="Search ..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
