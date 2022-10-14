@@ -5,10 +5,10 @@ const App = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="half" style={{ borderRight: '1px solid' }}>
+        <div className="half sm-full">
           <NewTask />
         </div>
-        <div className="half">
+        <div className="half sm-full">
           <ToDoList />
         </div>
       </div>
